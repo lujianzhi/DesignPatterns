@@ -1,10 +1,11 @@
 package com.ian;
 
-import com.ian.observer.example.observer.HumidityObserver;
-import com.ian.observer.example.observer.Observer;
-import com.ian.observer.example.observer.TemperatureObserver;
-import com.ian.observer.example.subject.Subject;
-import com.ian.observer.example.subject.WeatherData;
+import com.ian.decorator.example.Beverage;
+import com.ian.decorator.example.concretecomponent.DarkRoast;
+import com.ian.decorator.example.concretecomponent.Espresso;
+import com.ian.decorator.example.decorator.CondimentDecorator;
+import com.ian.decorator.example.decorator.Mocha;
+import com.ian.decorator.example.decorator.Soy;
 
 /**
  * Created by Ian.Lu on 2016/11/15.
@@ -46,12 +47,24 @@ public class Main {
         /**
          *观察者模式
          */
-        Subject subject = new WeatherData(28, 2, 600);
-        Observer humidityObserver = new HumidityObserver();
-        Observer temperatureObserver = new TemperatureObserver();
-        subject.registerObserver(humidityObserver);
-        subject.registerObserver(temperatureObserver);
-        subject.setChanged();
-        subject.notifyObservers();
+//        Subject subject = new WeatherData(28, 2, 600);
+//        Observer humidityObserver = new HumidityObserver();
+//        Observer temperatureObserver = new TemperatureObserver();
+//        subject.registerObserver(humidityObserver);
+//        subject.registerObserver(temperatureObserver);
+//        subject.setChanged();
+//        subject.notifyObservers();
+
+        /**
+         * 装饰者模式
+         */
+        Beverage darkRoast = new DarkRoast();
+        darkRoast = new CondimentDecorator(darkRoast);
+        darkRoast = new Soy(darkRoast);
+        System.out.println("点餐 : " + darkRoast.getDescription() + "\n消费 : " + darkRoast.cost());
+
+        Beverage espresso = new Espresso();
+        espresso = new Mocha(espresso);
+        System.out.println("点餐 : " + espresso.getDescription() + "\n消费 : " + espresso.cost());
     }
 }
