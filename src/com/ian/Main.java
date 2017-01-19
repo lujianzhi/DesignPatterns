@@ -83,11 +83,36 @@ public class Main {
         /**
          * 抽象工厂
          */
-        com.ian.factory.example.abstractfactory.store.PizzaStore nyPizzaStoreAF = new com.ian.factory.example.abstractfactory.store.NYPizzaStore();
-        nyPizzaStoreAF.orderPizza("greek");
-        System.out.println();
-        com.ian.factory.example.abstractfactory.store.PizzaStore bostonPizzaStoreAF = new com.ian.factory.example.abstractfactory.store.BostonPizzaStore();
-        bostonPizzaStoreAF.orderPizza("greek");
+//        com.ian.factory.example.abstractfactory.store.PizzaStore nyPizzaStoreAF = new com.ian.factory.example.abstractfactory.store.NYPizzaStore();
+//        nyPizzaStoreAF.orderPizza("greek");
+//        System.out.println();
+//        com.ian.factory.example.abstractfactory.store.PizzaStore bostonPizzaStoreAF = new com.ian.factory.example.abstractfactory.store.BostonPizzaStore();
+//        bostonPizzaStoreAF.orderPizza("greek");
+
+
+        /**
+         * 单例模式
+         */
+        //懒汉
+//        Singleton singleton1 = Singleton.getInstance("懒汉");
+//        Singleton singleton2 = Singleton.getInstance("懒汉");
+//        Singleton singleton3 = Singleton.getInstance("懒汉");
+//        Singleton singleton4 = Singleton.getInstance("懒汉");
+//        System.out.println("singleton1 : " + singleton1.hashCode() + " ; singleton2 : " + singleton2.hashCode() + " ; singleton3 : " + singleton3.hashCode() + " ; singleton4 : " + singleton4.hashCode());
+
+        //饿汉
+//        Singleton singleton1 = Singleton.getInstance();
+//        Singleton singleton2 = Singleton.getInstance();
+//        Singleton singleton3 = Singleton.getInstance();
+//        Singleton singleton4 = Singleton.getInstance();
+//        System.out.println("singleton1 : " + singleton1.hashCode() + " ; singleton2 : " + singleton2.hashCode() + " ; singleton3 : " + singleton3.hashCode() + " ; singleton4 : " + singleton4.hashCode());
+
+        //双重锁
+//        Singleton singleton1 = Singleton.getInstance();
+//        Singleton singleton2 = Singleton.getInstance();
+//        Singleton singleton3 = Singleton.getInstance();
+//        Singleton singleton4 = Singleton.getInstance();
+//        System.out.println("singleton1 : " + singleton1.hashCode() + " ; singleton2 : " + singleton2.hashCode() + " ; singleton3 : " + singleton3.hashCode() + " ; singleton4 : " + singleton4.hashCode());
 
     }
 }
