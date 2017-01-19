@@ -1,5 +1,12 @@
 package com.ian;
 
+import com.ian.command.example.command.Command;
+import com.ian.command.example.command.LightOffCommand;
+import com.ian.command.example.command.LightOnCommand;
+import com.ian.command.example.control.SimpleRemoteControler;
+import com.ian.command.example.furniture.Light;
+import com.ian.command.example.furniture.LivingRoomLight;
+
 /**
  * Created by Ian.Lu on 2016/11/15.
  * Project : DesignPatterns
@@ -114,5 +121,20 @@ public class Main {
 //        Singleton singleton4 = Singleton.getInstance();
 //        System.out.println("singleton1 : " + singleton1.hashCode() + " ; singleton2 : " + singleton2.hashCode() + " ; singleton3 : " + singleton3.hashCode() + " ; singleton4 : " + singleton4.hashCode());
 
+
+        //命令模式
+        SimpleRemoteControler simpleRemoteControler = new SimpleRemoteControler();
+        Light livingRoomLight = new LivingRoomLight();
+        Command[] commands = new Command[2];
+        Command lightOnCommand = new LightOnCommand(livingRoomLight);
+        Command lightOffCommand = new LightOffCommand(livingRoomLight);
+        commands[0] = lightOnCommand;
+        commands[1] = lightOffCommand;
+
+        simpleRemoteControler.setCommand(commands);
+        simpleRemoteControler.pressOnButton();
+        simpleRemoteControler.undo();
+        simpleRemoteControler.pressOffButton();
+        simpleRemoteControler.undo();
     }
 }
