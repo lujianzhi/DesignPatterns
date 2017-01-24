@@ -1,11 +1,9 @@
 package com.ian;
 
-import com.ian.command.example.command.Command;
-import com.ian.command.example.command.LightOffCommand;
-import com.ian.command.example.command.LightOnCommand;
-import com.ian.command.example.control.SimpleRemoteControler;
-import com.ian.command.example.furniture.Light;
-import com.ian.command.example.furniture.LivingRoomLight;
+import com.ian.adapter.example.ChangeToDuckAdapter;
+import com.ian.adapter.example.entity.Bird;
+import com.ian.adapter.example.entity.Duck;
+import com.ian.adapter.example.entity.IDuck;
 
 /**
  * Created by Ian.Lu on 2016/11/15.
@@ -123,18 +121,32 @@ public class Main {
 
 
         //命令模式
-        SimpleRemoteControler simpleRemoteControler = new SimpleRemoteControler();
-        Light livingRoomLight = new LivingRoomLight();
-        Command[] commands = new Command[2];
-        Command lightOnCommand = new LightOnCommand(livingRoomLight);
-        Command lightOffCommand = new LightOffCommand(livingRoomLight);
-        commands[0] = lightOnCommand;
-        commands[1] = lightOffCommand;
+//        SimpleRemoteControler simpleRemoteControler = new SimpleRemoteControler();
+//        Light livingRoomLight = new LivingRoomLight();
+//        Command[] commands = new Command[2];
+//        Command lightOnCommand = new LightOnCommand(livingRoomLight);
+//        Command lightOffCommand = new LightOffCommand(livingRoomLight);
+//        commands[0] = lightOnCommand;
+//        commands[1] = lightOffCommand;
+//
+//        simpleRemoteControler.setCommand(commands);
+//        simpleRemoteControler.pressOnButton();
+//        simpleRemoteControler.undo();
+//        simpleRemoteControler.pressOffButton();
+//        simpleRemoteControler.undo();
 
-        simpleRemoteControler.setCommand(commands);
-        simpleRemoteControler.pressOnButton();
-        simpleRemoteControler.undo();
-        simpleRemoteControler.pressOffButton();
-        simpleRemoteControler.undo();
+
+        /**
+         * 适配器模式
+         */
+        IDuck duck = new Duck();
+        duck.quack();
+        duck.fly();
+
+        Bird bird = new Bird();
+        ChangeToDuckAdapter changeToDuckAdapter = new ChangeToDuckAdapter(bird);
+        changeToDuckAdapter.quack();
+        changeToDuckAdapter.fly();
+
     }
 }
