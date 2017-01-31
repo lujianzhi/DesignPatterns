@@ -1,9 +1,8 @@
 package com.ian;
 
-import com.ian.adapter.example.ChangeToDuckAdapter;
-import com.ian.adapter.example.entity.Bird;
-import com.ian.adapter.example.entity.Duck;
-import com.ian.adapter.example.entity.IDuck;
+import com.ian.templatemethod.example.CaffeineBeverage;
+import com.ian.templatemethod.example.Coffee;
+import com.ian.templatemethod.example.Tea;
 
 /**
  * Created by Ian.Lu on 2016/11/15.
@@ -139,14 +138,23 @@ public class Main {
         /**
          * 适配器模式
          */
-        IDuck duck = new Duck();
-        duck.quack();
-        duck.fly();
+//        IDuck duck = new Duck();
+//        duck.quack();
+//        duck.fly();
+//
+//        Bird bird = new Bird();
+//        ChangeToDuckAdapter changeToDuckAdapter = new ChangeToDuckAdapter(bird);
+//        changeToDuckAdapter.quack();
+//        changeToDuckAdapter.fly();
 
-        Bird bird = new Bird();
-        ChangeToDuckAdapter changeToDuckAdapter = new ChangeToDuckAdapter(bird);
-        changeToDuckAdapter.quack();
-        changeToDuckAdapter.fly();
 
+        /**
+         * 模板方法模式
+         */
+        CaffeineBeverage coffee = new Coffee();
+        coffee.prepareRecipe();
+
+        CaffeineBeverage tea = new Tea();
+        tea.prepareRecipe();
     }
 }
