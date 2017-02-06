@@ -1,8 +1,8 @@
 package com.ian;
 
-import com.ian.templatemethod.example.CaffeineBeverage;
-import com.ian.templatemethod.example.Coffee;
-import com.ian.templatemethod.example.Tea;
+import com.ian.iterator.example.entity.Waitress;
+import com.ian.iterator.example.menu.DinerMenu;
+import com.ian.iterator.example.menu.PancakeHouseMenu;
 
 /**
  * Created by Ian.Lu on 2016/11/15.
@@ -151,10 +151,18 @@ public class Main {
         /**
          * 模板方法模式
          */
-        CaffeineBeverage coffee = new Coffee();
-        coffee.prepareRecipe();
+//        CaffeineBeverage coffee = new Coffee();
+//        coffee.prepareRecipe();
+//
+//        CaffeineBeverage tea = new Tea();
+//        tea.prepareRecipe();
 
-        CaffeineBeverage tea = new Tea();
-        tea.prepareRecipe();
+
+        /**
+         * 迭代器模式
+         */
+        Waitress waitress = new Waitress(new DinerMenu(),new PancakeHouseMenu());
+        waitress.printMenu();
+
     }
 }
