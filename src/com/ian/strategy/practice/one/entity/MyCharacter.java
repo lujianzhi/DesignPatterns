@@ -1,6 +1,6 @@
-package com.ian.strategy.homework.one.entity;
+package com.ian.strategy.practice.one.entity;
 
-import com.ian.strategy.homework.one.model.WeaponBehavior;
+import com.ian.strategy.practice.one.model.WeaponBehavior;
 
 /**
  * Created by Ian.Lu on 2017/1/7.

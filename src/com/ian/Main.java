@@ -1,9 +1,5 @@
 package com.ian;
 
-import com.ian.iterator.example.entity.Waitress;
-import com.ian.iterator.example.menu.DinerMenu;
-import com.ian.iterator.example.menu.PancakeHouseMenu;
-
 /**
  * Created by Ian.Lu on 2016/11/15.
  * Project : DesignPatterns
@@ -11,6 +7,14 @@ import com.ian.iterator.example.menu.PancakeHouseMenu;
 public class Main {
 
     public static void main(String[] args) {
+
+        example();
+
+        practice();
+
+    }
+
+    private static void example() {
         /**
          * 策略模式example
          */
@@ -118,6 +122,30 @@ public class Main {
 //        Singleton singleton4 = Singleton.getInstance();
 //        System.out.println("singleton1 : " + singleton1.hashCode() + " ; singleton2 : " + singleton2.hashCode() + " ; singleton3 : " + singleton3.hashCode() + " ; singleton4 : " + singleton4.hashCode());
 
+        //静态内部类单例模式
+//        for (int i = 0; i < 5; i++) {
+//            new Thread("Thread" + i) {
+//                @Override
+//                public void run() {
+//                    super.run();
+//                    Singleton singleton = Singleton.getInstance();
+//                    System.out.println("singleton-" + getName() + " : " + singleton.hashCode());
+//                }
+//            }.start();
+//        }
+
+        //枚举单例
+//        for (int i = 0; i < 5; i++) {
+//            new Thread("Thread" + i) {
+//                @Override
+//                public void run() {
+//                    super.run();
+//                    EnumSingleton singleton = EnumSingleton.INSTANCE;
+//                    System.out.println("singleton-" + getName() + " : " + singleton.hashCode());
+//                }
+//            }.start();
+//        }
+
 
         //命令模式
 //        SimpleRemoteControler simpleRemoteControler = new SimpleRemoteControler();
@@ -161,8 +189,25 @@ public class Main {
         /**
          * 迭代器模式
          */
-        Waitress waitress = new Waitress(new DinerMenu(),new PancakeHouseMenu());
-        waitress.printMenu();
+//        Waitress waitress = new Waitress(new DinerMenu(),new PancakeHouseMenu());
+//        waitress.printMenu();
 
+
+        /**
+         * 组合模式
+         */
+    }
+
+    private static void practice() {
+
+        /**
+         * 策略模式
+         */
+//        Person hanMeimei = new HanMeimei();
+//        hanMeimei.goOut();
+//        Person liLeilei = new LiLeilei();
+//        liLeilei.setCloth(new AdidasCloth());
+//        liLeilei.setGlasses(new SunGlasses());
+//        liLeilei.goOut();
     }
 }

@@ -1,4 +1,4 @@
-package com.ian.strategy.homework.one.entity;
+package com.ian.strategy.practice.one.entity;
 
 /**
  * Created by Ian.Lu on 2017/1/7.

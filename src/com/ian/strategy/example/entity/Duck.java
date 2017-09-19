@@ -22,11 +22,15 @@ public abstract class Duck {
     }
 
     private void fly() {
-        flyBehavior.fly();
+        if (flyBehavior != null) {
+            flyBehavior.fly();
+        }
     }
 
     private void quack() {
-        quackBehavior.quack();
+        if (quackBehavior != null) {
+            quackBehavior.quack();
+        }
     }
 
     public void setFlyBehavior(FlyBehavior flyBehavior) {

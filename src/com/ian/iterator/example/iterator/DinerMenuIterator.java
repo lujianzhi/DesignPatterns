@@ -17,7 +17,6 @@ public class DinerMenuIterator implements Iterator {
         if (menuItems != null) {
             length = menuItems.length;
         }
-        abc();
     }
 
     @Override

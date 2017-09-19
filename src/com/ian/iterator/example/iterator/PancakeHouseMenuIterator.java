@@ -17,7 +17,6 @@ public class PancakeHouseMenuIterator implements Iterator {
     public PancakeHouseMenuIterator(ArrayList<MenuItem> menuItems) {
         this.menuItems = menuItems;
         size = menuItems.size();
-        abc();
     }
 
     @Override
