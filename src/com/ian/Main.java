@@ -1,5 +1,11 @@
 package com.ian;
 
+import com.ian.observer.practice.observable.HuaLian;
+import com.ian.observer.practice.observable.Observable;
+import com.ian.observer.practice.observable.WalMart;
+import com.ian.observer.practice.observer.HanMeimei;
+import com.ian.observer.practice.observer.LiLeilei;
+
 /**
  * Created by Ian.Lu on 2016/11/15.
  * Project : DesignPatterns
@@ -209,5 +215,22 @@ public class Main {
 //        liLeilei.setCloth(new AdidasCloth());
 //        liLeilei.setGlasses(new SunGlasses());
 //        liLeilei.goOut();
+
+        /**
+         * 观察者模式
+         */
+        Observable walMart = new WalMart();
+        Observable huaLian = new HuaLian();
+        HanMeimei hanMeimei = new HanMeimei();
+        LiLeilei liLeilei = new LiLeilei();
+
+        walMart.registerObserver(hanMeimei);
+        huaLian.registerObserver(hanMeimei);
+        huaLian.registerObserver(liLeilei);
+        walMart.addThings("C,D,E");
+
+        walMart.notifyObservers();
+        huaLian.setDataHasChanged();
+        huaLian.notifyObservers();
     }
 }
