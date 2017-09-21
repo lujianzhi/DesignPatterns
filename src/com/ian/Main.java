@@ -1,10 +1,10 @@
 package com.ian;
 
-import com.ian.observer.practice.observable.HuaLian;
-import com.ian.observer.practice.observable.Observable;
-import com.ian.observer.practice.observable.WalMart;
-import com.ian.observer.practice.observer.HanMeimei;
-import com.ian.observer.practice.observer.LiLeilei;
+import com.ian.decorator.practice.component.ComponentShopCar;
+import com.ian.decorator.practice.component.HanMeimeiShopCar;
+import com.ian.decorator.practice.component.LiLeileiShopCar;
+import com.ian.decorator.practice.decorator.FourWheelsShopCar;
+import com.ian.decorator.practice.decorator.RedShopCar;
 
 /**
  * Created by Ian.Lu on 2016/11/15.
@@ -219,18 +219,31 @@ public class Main {
         /**
          * 观察者模式
          */
-        Observable walMart = new WalMart();
-        Observable huaLian = new HuaLian();
-        HanMeimei hanMeimei = new HanMeimei();
-        LiLeilei liLeilei = new LiLeilei();
+//        Observable walMart = new WalMart();
+//        Observable huaLian = new HuaLian();
+//        HanMeimei hanMeimei = new HanMeimei();
+//        LiLeilei liLeilei = new LiLeilei();
+//
+//        walMart.registerObserver(hanMeimei);
+//        huaLian.registerObserver(hanMeimei);
+//        huaLian.registerObserver(liLeilei);
+//        walMart.addThings("C,D,E");
+//
+//        walMart.notifyObservers();
+//        huaLian.setDataHasChanged();
+//        huaLian.notifyObservers();
 
-        walMart.registerObserver(hanMeimei);
-        huaLian.registerObserver(hanMeimei);
-        huaLian.registerObserver(liLeilei);
-        walMart.addThings("C,D,E");
+        /**
+         * 装饰者模式
+         */
+        ComponentShopCar hanMeimeiShopCar = new HanMeimeiShopCar();
+        hanMeimeiShopCar = new RedShopCar(hanMeimeiShopCar);
+        hanMeimeiShopCar = new FourWheelsShopCar(hanMeimeiShopCar);
+        hanMeimeiShopCar.shopCar();
 
-        walMart.notifyObservers();
-        huaLian.setDataHasChanged();
-        huaLian.notifyObservers();
+        ComponentShopCar liLeileiShopCar = new LiLeileiShopCar();
+        liLeileiShopCar = new FourWheelsShopCar(liLeileiShopCar);
+        liLeileiShopCar.shopCar();
+
     }
 }
