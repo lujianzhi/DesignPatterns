@@ -1,8 +1,9 @@
 package com.ian;
 
-import com.ian.factory.practice.abstractfactory.AbstractFactory;
-import com.ian.factory.practice.abstractfactory.BookFactory;
-import com.ian.factory.practice.abstractfactory.DeskFactory;
+import com.ian.command.practice.command.BuyCommand;
+import com.ian.command.practice.command.ICommand;
+import com.ian.command.practice.invoker.BuyInvoker;
+import com.ian.command.practice.receiver.BuyBuyBuy;
 
 /**
  * Created by Ian.Lu on 2016/11/15.
@@ -150,7 +151,6 @@ public class Main {
 
 
         //命令模式
-//        SimpleRemoteControler simpleRemoteControler = new SimpleRemoteControler();
 //        Light livingRoomLight = new LivingRoomLight();
 //        Command[] commands = new Command[2];
 //        Command lightOnCommand = new LightOnCommand(livingRoomLight);
@@ -158,6 +158,7 @@ public class Main {
 //        commands[0] = lightOnCommand;
 //        commands[1] = lightOffCommand;
 //
+//        SimpleRemoteControler simpleRemoteControler = new SimpleRemoteControler();
 //        simpleRemoteControler.setCommand(commands);
 //        simpleRemoteControler.pressOnButton();
 //        simpleRemoteControler.undo();
@@ -252,12 +253,23 @@ public class Main {
         /**
          * 抽象工厂模式
          */
-        AbstractFactory bookFactory = new BookFactory();
-        System.out.println(bookFactory.getProduct().toString());
-        System.out.println(bookFactory.getProductB().toString());
+//        AbstractFactory bookFactory = new BookFactory();
+//        System.out.println(bookFactory.getProduct().toString());
+//        System.out.println(bookFactory.getProductB().toString());
+//
+//        AbstractFactory deskFactory = new DeskFactory();
+//        System.out.println(deskFactory.getProduct().toString());
+//        System.out.println(deskFactory.getProductB().toString());
 
-        AbstractFactory deskFactory = new DeskFactory();
-        System.out.println(deskFactory.getProduct().toString());
-        System.out.println(deskFactory.getProductB().toString());
+        /**
+         * 命令模式
+         */
+        BuyBuyBuy buyBuyBuy = new BuyBuyBuy();
+        ICommand buyCommand = new BuyCommand(buyBuyBuy);
+
+        BuyInvoker buyInvoker = new BuyInvoker(buyCommand);
+        buyInvoker.action();
+
+
     }
 }
