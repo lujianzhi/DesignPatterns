@@ -1,10 +1,8 @@
 package com.ian;
 
-import com.ian.decorator.practice.component.ComponentShopCar;
-import com.ian.decorator.practice.component.HanMeimeiShopCar;
-import com.ian.decorator.practice.component.LiLeileiShopCar;
-import com.ian.decorator.practice.decorator.FourWheelsShopCar;
-import com.ian.decorator.practice.decorator.RedShopCar;
+import com.ian.factory.practice.abstractfactory.AbstractFactory;
+import com.ian.factory.practice.abstractfactory.BookFactory;
+import com.ian.factory.practice.abstractfactory.DeskFactory;
 
 /**
  * Created by Ian.Lu on 2016/11/15.
@@ -83,7 +81,6 @@ public class Main {
 //        com.ian.factory.example.simplefactory.store.PizzaStore pizzaStoreSF = new com.ian.factory.example.simplefactory.store.PizzaStore(new SimplePizzaFactory());
 //        pizzaStoreSF.orderPizza("greek");
 
-
         /**
          * 工厂方法模式
          */
@@ -92,7 +89,6 @@ public class Main {
 //        System.out.println();
 //        com.ian.factory.example.factorymethod.store.PizzaStore bostonPizzaStoreFM = new com.ian.factory.example.factorymethod.store.BostonPizzaStore();
 //        bostonPizzaStoreFM.orderPizza("greek");
-
 
         /**
          * 抽象工厂
@@ -236,14 +232,32 @@ public class Main {
         /**
          * 装饰者模式
          */
-        ComponentShopCar hanMeimeiShopCar = new HanMeimeiShopCar();
-        hanMeimeiShopCar = new RedShopCar(hanMeimeiShopCar);
-        hanMeimeiShopCar = new FourWheelsShopCar(hanMeimeiShopCar);
-        hanMeimeiShopCar.shopCar();
+//        ComponentShopCar hanMeimeiShopCar = new HanMeimeiShopCar();
+//        hanMeimeiShopCar = new RedShopCar(hanMeimeiShopCar);
+//        hanMeimeiShopCar = new FourWheelsShopCar(hanMeimeiShopCar);
+//        hanMeimeiShopCar.shopCar();
+//
+//        ComponentShopCar liLeileiShopCar = new LiLeileiShopCar();
+//        liLeileiShopCar = new FourWheelsShopCar(liLeileiShopCar);
+//        liLeileiShopCar.shopCar();
 
-        ComponentShopCar liLeileiShopCar = new LiLeileiShopCar();
-        liLeileiShopCar = new FourWheelsShopCar(liLeileiShopCar);
-        liLeileiShopCar.shopCar();
+        /**
+         * 工厂方法模式
+         */
+//        ProductFactory walMartFactory = new WalMartFactory();
+//        Product product = walMartFactory.createProduct(Book.class);
+//        System.out.println(product.toString());
+//        System.out.println(walMartFactory.createProduct().toString());
 
+        /**
+         * 抽象工厂模式
+         */
+        AbstractFactory bookFactory = new BookFactory();
+        System.out.println(bookFactory.getProduct().toString());
+        System.out.println(bookFactory.getProductB().toString());
+
+        AbstractFactory deskFactory = new DeskFactory();
+        System.out.println(deskFactory.getProduct().toString());
+        System.out.println(deskFactory.getProductB().toString());
     }
 }
