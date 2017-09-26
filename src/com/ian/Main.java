@@ -1,9 +1,9 @@
 package com.ian;
 
-import com.ian.command.practice.command.BuyCommand;
-import com.ian.command.practice.command.ICommand;
-import com.ian.command.practice.invoker.BuyInvoker;
-import com.ian.command.practice.receiver.BuyBuyBuy;
+import com.ian.adapter.practice.adapter.WashRoomUsageAdapter;
+import com.ian.adapter.practice.entity.FemaleWashRoomUsage;
+import com.ian.adapter.practice.entity.IWashRoomUsage;
+import com.ian.adapter.practice.entity.MalePee;
 
 /**
  * Created by Ian.Lu on 2016/11/15.
@@ -206,9 +206,9 @@ public class Main {
         /**
          * 策略模式
          */
-//        Person hanMeimei = new HanMeimei();
+//        IWashRoomUsage hanMeimei = new HanMeimei();
 //        hanMeimei.goOut();
-//        Person liLeilei = new LiLeilei();
+//        IWashRoomUsage liLeilei = new LiLeilei();
 //        liLeilei.setCloth(new AdidasCloth());
 //        liLeilei.setGlasses(new SunGlasses());
 //        liLeilei.goOut();
@@ -264,12 +264,23 @@ public class Main {
         /**
          * 命令模式
          */
-        BuyBuyBuy buyBuyBuy = new BuyBuyBuy();
-        ICommand buyCommand = new BuyCommand(buyBuyBuy);
+//        BuyBuyBuy buyBuyBuy = new BuyBuyBuy();
+//        ICommand buyCommand = new BuyCommand(buyBuyBuy);
+//
+//        BuyInvoker buyInvoker = new BuyInvoker(buyCommand);
+//        buyInvoker.action();
 
-        BuyInvoker buyInvoker = new BuyInvoker(buyCommand);
-        buyInvoker.action();
 
+        /**
+         * 适配器模式
+         */
+        IWashRoomUsage female = new FemaleWashRoomUsage();
+        female.washRoom();
+
+        MalePee malePee = new MalePee();
+        malePee.pee();
+        WashRoomUsageAdapter washRoomUsageAdapter = new WashRoomUsageAdapter(malePee);
+        washRoomUsageAdapter.washRoom();
 
     }
 }
