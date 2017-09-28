@@ -1,7 +1,4 @@
-import java.text.DateFormat;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
+import java.text.*;
 import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
@@ -157,7 +154,33 @@ public class TestClass {
 
 //        testQueue();
 
-        System.out.println(getTimestampString(new Date(System.currentTimeMillis() - 56400000)));
+//        System.out.println(getTimestampString(new Date(System.currentTimeMillis() - 56400000)));
+
+        formatDate();
+    }
+
+    private static void formatDate() {
+        String str = "2017-07-22 21:47:00";
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            Date date = format.parse(str);
+            System.out.println(date.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date2 = new Date(1500731220000L);
+        System.out.println(format1.format(date2));
+
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 100; i++) {
+            SimpleDateFormat format2 = new SimpleDateFormat("mm:ss");
+            Date date3 = new Date(188000);
+            System.out.println(format2.format(date3));
+        }
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
     }
 
     /**
@@ -290,15 +313,19 @@ public class TestClass {
     private static class TimeInfo {
         private long startTime;
         private long endTime;
+
         public long getStartTime() {
             return this.startTime;
         }
+
         public void setStartTime(long paramLong) {
             this.startTime = paramLong;
         }
+
         public long getEndTime() {
             return this.endTime;
         }
+
         public void setEndTime(long paramLong) {
             this.endTime = paramLong;
         }

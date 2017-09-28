@@ -1,9 +1,8 @@
 package com.ian;
 
-import com.ian.adapter.practice.adapter.WashRoomUsageAdapter;
-import com.ian.adapter.practice.entity.FemaleWashRoomUsage;
-import com.ian.adapter.practice.entity.IWashRoomUsage;
-import com.ian.adapter.practice.entity.MalePee;
+import com.ian.iterator.example.entity.Waitress;
+import com.ian.iterator.example.menu.DinerMenu;
+import com.ian.iterator.example.menu.PancakeHouseMenu;
 
 /**
  * Created by Ian.Lu on 2016/11/15.
@@ -192,8 +191,8 @@ public class Main {
         /**
          * 迭代器模式
          */
-//        Waitress waitress = new Waitress(new DinerMenu(),new PancakeHouseMenu());
-//        waitress.printMenu();
+        Waitress waitress = new Waitress(new DinerMenu(),new PancakeHouseMenu());
+        waitress.printMenu();
 
 
         /**
@@ -274,13 +273,22 @@ public class Main {
         /**
          * 适配器模式
          */
-        IWashRoomUsage female = new FemaleWashRoomUsage();
-        female.washRoom();
+//        IWashRoomUsage female = new FemaleWashRoomUsage();
+//        female.washRoom();
+//
+//        MalePee malePee = new MalePee();
+//        malePee.pee();
+//        WashRoomUsageAdapter washRoomUsageAdapter = new WashRoomUsageAdapter(malePee);
+//        washRoomUsageAdapter.washRoom();
 
-        MalePee malePee = new MalePee();
-        malePee.pee();
-        WashRoomUsageAdapter washRoomUsageAdapter = new WashRoomUsageAdapter(malePee);
-        washRoomUsageAdapter.washRoom();
 
+        /**
+         * 模板模式
+         */
+//        DressUp hanMeimei = new HanMeimei();
+//        hanMeimei.dressUp();
+//
+//        DressUp liLeilei = new LiLeilei();
+//        liLeilei.dressUp();
     }
 }

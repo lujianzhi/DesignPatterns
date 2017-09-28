@@ -6,6 +6,7 @@ package com.ian.templatemethod.example;
  */
 public abstract class CaffeineBeverage {
 
+    //有final修饰
     public final void prepareRecipe() {
         boilWater();
         brew();
