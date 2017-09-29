@@ -1,8 +1,9 @@
 package com.ian;
 
-import com.ian.iterator.example.entity.Waitress;
-import com.ian.iterator.example.menu.DinerMenu;
-import com.ian.iterator.example.menu.PancakeHouseMenu;
+import com.ian.iterator.practice.collection.HanMeimeiShopCar;
+import com.ian.iterator.practice.collection.LiLeileiShopCar;
+import com.ian.iterator.practice.collection.ShopCar;
+import com.ian.iterator.practice.iterator.Iterator;
 
 /**
  * Created by Ian.Lu on 2016/11/15.
@@ -191,8 +192,8 @@ public class Main {
         /**
          * 迭代器模式
          */
-        Waitress waitress = new Waitress(new DinerMenu(),new PancakeHouseMenu());
-        waitress.printMenu();
+//        Waitress waitress = new Waitress(new DinerMenu(),new PancakeHouseMenu());
+//        waitress.printMenu();
 
 
         /**
@@ -290,5 +291,24 @@ public class Main {
 //
 //        DressUp liLeilei = new LiLeilei();
 //        liLeilei.dressUp();
+
+
+        /**
+         * 迭代器模式
+         */
+        ShopCar<String> liLeileiShopCar = new LiLeileiShopCar();
+        Iterator<String> liLeileiIter = liLeileiShopCar.getIterator();
+        System.out.println("李雷雷购物车:");
+        while (liLeileiIter.hasNext()) {
+            System.out.println(liLeileiIter.get());
+        }
+
+        ShopCar<String> hanMeimeiShopCar = new HanMeimeiShopCar();
+        Iterator<String> hanMeimeiIter = hanMeimeiShopCar.getIterator();
+        System.out.println("韩梅梅购物车:");
+        while (hanMeimeiIter.hasNext()) {
+            System.out.println(hanMeimeiIter.get());
+        }
+
     }
 }
