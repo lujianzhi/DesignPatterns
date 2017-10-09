@@ -2,6 +2,8 @@ package com.ian.composite.expamle.component;
 
 import com.ian.composite.expamle.exception.UnSupportException;
 
+import java.util.Iterator;
+
 /**
  * Created by Ian.Lu on 2017/2/6.
  * Project : DesignPatterns
@@ -65,5 +67,9 @@ public abstract class MenuComponent {
         } catch (UnSupportException e) {
             e.printStackTrace();
         }
+    }
+
+    public Iterator getIterator(){
+        return null;
     }
 }

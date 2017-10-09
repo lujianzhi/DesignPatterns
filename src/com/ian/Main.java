@@ -1,9 +1,9 @@
 package com.ian;
 
-import com.ian.iterator.practice.collection.HanMeimeiShopCar;
-import com.ian.iterator.practice.collection.LiLeileiShopCar;
-import com.ian.iterator.practice.collection.ShopCar;
-import com.ian.iterator.practice.iterator.Iterator;
+import com.ian.composite.expamle.component.Menu;
+import com.ian.composite.expamle.component.MenuComponent;
+import com.ian.composite.expamle.component.MenuItem;
+import com.ian.iterator.example.entity.Waitress;
 
 /**
  * Created by Ian.Lu on 2016/11/15.
@@ -195,10 +195,21 @@ public class Main {
 //        Waitress waitress = new Waitress(new DinerMenu(),new PancakeHouseMenu());
 //        waitress.printMenu();
 
-
         /**
          * 组合模式
          */
+        MenuComponent naiChamenu = new Menu("奶茶菜单");
+        naiChamenu.add(new MenuItem("波霸1", 20));
+        naiChamenu.add(new MenuItem("波霸2", 20));
+        naiChamenu.add(new MenuItem("波霸3", 20));
+
+        MenuComponent mainMenu = new Menu("主菜单");
+        mainMenu.add(new MenuItem("鱼香肉丝", 20));
+        mainMenu.add(naiChamenu);
+        mainMenu.add(new MenuItem("鱼香肉丝2", 20));
+        mainMenu.add(new MenuItem("鱼香肉丝3", 20));
+        Waitress waitress = new Waitress(mainMenu);
+        waitress.printAllMenu();
     }
 
     private static void practice() {
@@ -296,19 +307,19 @@ public class Main {
         /**
          * 迭代器模式
          */
-        ShopCar<String> liLeileiShopCar = new LiLeileiShopCar();
-        Iterator<String> liLeileiIter = liLeileiShopCar.getIterator();
-        System.out.println("李雷雷购物车:");
-        while (liLeileiIter.hasNext()) {
-            System.out.println(liLeileiIter.get());
-        }
-
-        ShopCar<String> hanMeimeiShopCar = new HanMeimeiShopCar();
-        Iterator<String> hanMeimeiIter = hanMeimeiShopCar.getIterator();
-        System.out.println("韩梅梅购物车:");
-        while (hanMeimeiIter.hasNext()) {
-            System.out.println(hanMeimeiIter.get());
-        }
+//        ShopCar<String> liLeileiShopCar = new LiLeileiShopCar();
+//        Iterator<String> liLeileiIter = liLeileiShopCar.getIterator();
+//        System.out.println("李雷雷购物车:");
+//        while (liLeileiIter.hasNext()) {
+//            System.out.println(liLeileiIter.get());
+//        }
+//
+//        ShopCar<String> hanMeimeiShopCar = new HanMeimeiShopCar();
+//        Iterator<String> hanMeimeiIter = hanMeimeiShopCar.getIterator();
+//        System.out.println("韩梅梅购物车:");
+//        while (hanMeimeiIter.hasNext()) {
+//            System.out.println(hanMeimeiIter.get());
+//        }
 
     }
 }
