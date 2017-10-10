@@ -1,9 +1,6 @@
 package com.ian;
 
-import com.ian.composite.expamle.component.Menu;
-import com.ian.composite.expamle.component.MenuComponent;
-import com.ian.composite.expamle.component.MenuItem;
-import com.ian.iterator.example.entity.Waitress;
+import com.ian.state.example.context.GumballMachine;
 
 /**
  * Created by Ian.Lu on 2016/11/15.
@@ -198,18 +195,40 @@ public class Main {
         /**
          * 组合模式
          */
-        MenuComponent naiChamenu = new Menu("奶茶菜单");
-        naiChamenu.add(new MenuItem("波霸1", 20));
-        naiChamenu.add(new MenuItem("波霸2", 20));
-        naiChamenu.add(new MenuItem("波霸3", 20));
+//        MenuComponent naiChamenu = new Menu("奶茶菜单");
+//        naiChamenu.add(new MenuItem("波霸1", 20));
+//        naiChamenu.add(new MenuItem("波霸2", 20));
+//        naiChamenu.add(new MenuItem("波霸3", 20));
+//
+//        MenuComponent mainMenu = new Menu("主菜单");
+//        mainMenu.add(new MenuItem("鱼香肉丝", 20));
+//        mainMenu.add(naiChamenu);
+//        mainMenu.add(new MenuItem("鱼香肉丝2", 20));
+//        mainMenu.add(new MenuItem("鱼香肉丝3", 20));
+//        Waitress waitress = new Waitress(mainMenu);
+//        waitress.printAllMenu();
 
-        MenuComponent mainMenu = new Menu("主菜单");
-        mainMenu.add(new MenuItem("鱼香肉丝", 20));
-        mainMenu.add(naiChamenu);
-        mainMenu.add(new MenuItem("鱼香肉丝2", 20));
-        mainMenu.add(new MenuItem("鱼香肉丝3", 20));
-        Waitress waitress = new Waitress(mainMenu);
-        waitress.printAllMenu();
+        /**
+         * 状态模式
+         */
+        GumballMachine gumballMachine = new GumballMachine(5);
+
+        gumballMachine.ejectQuarter();
+        gumballMachine.turnCrank();
+        System.out.println("----");
+
+        gumballMachine.insertQuarter();
+        gumballMachine.ejectQuarter();
+        gumballMachine.turnCrank();
+        System.out.println("----");
+
+        for (int i = 0; i < 6; i++) {
+            gumballMachine.insertQuarter();
+            gumballMachine.turnCrank();
+            System.out.println("----");
+        }
+
+
     }
 
     private static void practice() {
