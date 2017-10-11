@@ -1,6 +1,8 @@
 package com.ian;
 
-import com.ian.state.example.context.GumballMachine;
+import com.ian.proxy.example.dynamicproxy.IDynamicSubject;
+import com.ian.proxy.example.dynamicproxy.ProxyInvocationHandler;
+import com.ian.proxy.example.dynamicproxy.RealDynamicSubject;
 
 /**
  * Created by Ian.Lu on 2016/11/15.
@@ -211,23 +213,37 @@ public class Main {
         /**
          * 状态模式
          */
-        GumballMachine gumballMachine = new GumballMachine(5);
+//        GumballMachine gumballMachine = new GumballMachine(5);
+//
+//        gumballMachine.ejectQuarter();
+//        gumballMachine.turnCrank();
+//        System.out.println("----");
+//
+//        gumballMachine.insertQuarter();
+//        gumballMachine.ejectQuarter();
+//        gumballMachine.turnCrank();
+//        System.out.println("----");
+//
+//        for (int i = 0; i < 6; i++) {
+//            gumballMachine.insertQuarter();
+//            gumballMachine.turnCrank();
+//            System.out.println("----");
+//        }
 
-        gumballMachine.ejectQuarter();
-        gumballMachine.turnCrank();
-        System.out.println("----");
 
-        gumballMachine.insertQuarter();
-        gumballMachine.ejectQuarter();
-        gumballMachine.turnCrank();
-        System.out.println("----");
+        /**
+         * 代理模式
+         */
+        //静态代理
+//        IStaticSubject realStaticSubject = new RealStaticSubject();
+//        IStaticSubject proxy = new ProxyStaticSubject(realStaticSubject);
+//        proxy.sayName();
 
-        for (int i = 0; i < 6; i++) {
-            gumballMachine.insertQuarter();
-            gumballMachine.turnCrank();
-            System.out.println("----");
-        }
-
+        //动态代理
+        IDynamicSubject realDynamicSubject = new RealDynamicSubject();
+        ProxyInvocationHandler proxyInvocationHandler = new ProxyInvocationHandler(realDynamicSubject);
+        IDynamicSubject proxyDynamicSubject = (IDynamicSubject) proxyInvocationHandler.getProxy();
+        proxyDynamicSubject.sayName();
 
     }
 
