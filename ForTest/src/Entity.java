@@ -6,12 +6,22 @@ import java.util.List;
  */
 public class Entity {
     private String name;
+    private double score;
 
     private List<Entity> subs;
+
+    public Entity(String name, double score) {
+        this.name = name;
+        this.score = score;
+    }
 
     public Entity(String name, List<Entity> subs) {
         this.name = name;
         this.subs = subs;
+    }
+
+    public double getScore() {
+        return score;
     }
 
     public Entity(String name) {
@@ -41,4 +51,5 @@ public class Entity {
                 ", subs=" + subs +
                 '}' + "\n";
     }
+
 }

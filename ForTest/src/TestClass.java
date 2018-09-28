@@ -144,7 +144,8 @@ public class TestClass {
 
 //        formatUrl();
 
-//        formatData(1499330700000L);
+//        formatData(1508828304447L);
+//        formatData(System.currentTimeMillis());
 
 //        mapTest();
 
@@ -156,7 +157,45 @@ public class TestClass {
 
 //        System.out.println(getTimestampString(new Date(System.currentTimeMillis() - 56400000)));
 
-        formatDate();
+//        formatDate();
+
+//        System.out.print(formatStr("asd\\\\"));
+
+//        sort();
+
+//        formatDate(System.currentTimeMillis());
+        formatDate(0);
+    }
+
+
+    private static void formatDate(long time) {
+        DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+        long timeFormat = Long.parseLong(formatter.format(new Date(time)));
+        System.out.println(timeFormat);
+    }
+
+
+    private static void sort() {
+        List<Entity> entityList = new ArrayList<>();
+        DecimalFormat df = new DecimalFormat("######0.00");
+        for (int i = 0; i < 50; i++) {
+            entityList.add(new Entity(String.valueOf(i), Double.parseDouble(df.format(Math.random() * 100))));
+        }
+
+        Collections.sort(entityList, new Comparator<Entity>() {
+            @Override
+            public int compare(Entity o1, Entity o2) {
+                return (int) (o2.getScore() * 100 - o1.getScore() * 100);
+            }
+        });
+
+        for (Entity entity : entityList) {
+            System.out.println("name : " + entity.getName() + "; score : " + entity.getScore());
+        }
+    }
+
+    private static String formatStr(String str) {
+        return str.replaceAll("\"", "\\\\\"");
     }
 
     private static void formatDate() {
@@ -435,21 +474,42 @@ public class TestClass {
 
     }
 
-    private static void formatData(long tiem) {
+    private static void formatData(long time) {
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(tiem);
-        System.out.println(tiem + " = " + formatter.format(calendar.getTime()));
+        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+        calendar.setTimeInMillis(time);
+        System.out.println(time + " = " + formatter.format(calendar.getTime()));
     }
 
     private static void formatUrl() {
         String str = "<img src=\"http://file.leke.cn/group1/M00/1D/52/wKjIKFdsf_mAPcy0AAOYbDouSr880.jpeg\" style=\"width:1273px;height:913px;\"/>";
-        String[] strs = str.split("\"");
-        System.out.println(strs[1]);
+        System.out.println(fortmat_1(str));
+//        String[] strs = str.split("\"");
+//        System.out.println(strs[1]);
 
         String str2 = "http://file.leke.cn/group1/M00/1D/52/wKjIKFdsf_mAPcy0AAOYbDouSr880.jpeg";
         String[] strs2 = str2.split("/");
         System.out.println(strs2[strs2.length - 1]);
+
+        String str3 = "<p>\n" +
+                "\t<span>下面每个图形是否关于某条直线成轴对称？若是，请画出这条直线．</span><span></span> \n" +
+                "</p>\n" +
+                "<p style=\"text-align:center;\">\n" +
+                "\t<img src=\"https://file.leke.cn/group2/M00/F8/22/wKjIG1mAoMGABUJiAAKsjl-kD9U859.png\" style=\"width:1094px;height:284px;\" /> \n" +
+                "</p>";
+        String[] strs3_1 = str3.split("<img");
+        String str3_2 = strs3_1[1];
+        System.out.println(fortmat_1(str3_2));
+//        String[] strs3_2 = str3_2.split("\"");
+//        System.out.println(strs3_2[1]);
+    }
+
+    private static String fortmat_1(String str) {
+        if (str.contains("src=")) {
+            String[] strs = str.split("\"");
+            str = strs[1].trim();
+        }
+        return str;
     }
 
     private static void testAddAll() {

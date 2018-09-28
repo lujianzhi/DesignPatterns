@@ -1,8 +1,10 @@
 package com.ian;
 
-import com.ian.proxy.example.dynamicproxy.IDynamicSubject;
-import com.ian.proxy.example.dynamicproxy.ProxyInvocationHandler;
-import com.ian.proxy.example.dynamicproxy.RealDynamicSubject;
+import com.ian.observer.example.observer.HumidityObserver;
+import com.ian.observer.example.observer.Observer;
+import com.ian.observer.example.observer.TemperatureObserver;
+import com.ian.observer.example.subject.Subject;
+import com.ian.observer.example.subject.WeatherData;
 
 /**
  * Created by Ian.Lu on 2016/11/15.
@@ -53,13 +55,13 @@ public class Main {
         /**
          *观察者模式
          */
-//        Subject subject = new WeatherData(28, 2, 600);
-//        Observer humidityObserver = new HumidityObserver();
-//        Observer temperatureObserver = new TemperatureObserver();
-//        subject.registerObserver(humidityObserver);
-//        subject.registerObserver(temperatureObserver);
-//        subject.setChanged();
-//        subject.notifyObservers();
+        Subject subject = new WeatherData(28, 2, 600);
+        Observer humidityObserver = new HumidityObserver();
+        Observer temperatureObserver = new TemperatureObserver();
+        subject.registerObserver(humidityObserver);
+        subject.registerObserver(temperatureObserver);
+        subject.setChanged();
+        subject.notifyObservers();
 
 
         /**
@@ -240,10 +242,10 @@ public class Main {
 //        proxy.sayName();
 
         //动态代理
-        IDynamicSubject realDynamicSubject = new RealDynamicSubject();
-        ProxyInvocationHandler proxyInvocationHandler = new ProxyInvocationHandler(realDynamicSubject);
-        IDynamicSubject proxyDynamicSubject = (IDynamicSubject) proxyInvocationHandler.getProxy();
-        proxyDynamicSubject.sayName();
+//        IDynamicSubject realDynamicSubject = new RealDynamicSubject();
+//        ProxyInvocationHandler proxyInvocationHandler = new ProxyInvocationHandler(realDynamicSubject);
+//        IDynamicSubject proxyDynamicSubject = (IDynamicSubject) proxyInvocationHandler.getProxy();
+//        proxyDynamicSubject.sayName();
 
     }
 
