@@ -29,6 +29,7 @@ public class ProxyInvocationHandler implements InvocationHandler {
      */
     public Object getProxy() {
         ClassLoader loader = ClassLoader.getSystemClassLoader();
+        //代理接口
         Class<?>[] interfaces = new Class[]{IDynamicSubject.class};
         return Proxy.newProxyInstance(loader, interfaces, this);
     }
