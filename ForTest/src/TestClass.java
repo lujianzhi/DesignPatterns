@@ -164,9 +164,76 @@ public class TestClass {
 //        sort();
 
 //        formatDate(System.currentTimeMillis());
-        formatDate(0);
+//        formatDate(0);
+
+//        EntitySon entitySon = new EntitySon("son");
+//        testSuper(entitySon);
+//        testExecption();
+
+//        subListTest();
+
+        textPackage();
     }
 
+    private static void textPackage() {
+        Integer a = 1;
+        Integer b = 1;
+        Integer c = 2;
+        Integer d = 123;
+        System.out.println(a.equals(b));
+        if (a.equals(b)) {
+            System.out.println(c.equals(a + b));
+        } else {
+            System.out.println("error");
+        }
+        if (true) {
+            System.out.println(c.equals(a + b));
+        } else {
+            System.out.println("error");
+        }
+    }
+
+    private static void subListTest() {
+        Map<Integer, List<String>> mFriendsSparseArray = new HashMap<>();
+        List<String> mFriendsList = new ArrayList<>();
+        int mShowNumber = 5;
+        for (int i = 0; i < 13; i++) {
+            mFriendsList.add("" + i);
+        }
+        if (mFriendsList == null || mFriendsList.isEmpty()) {
+            return;
+        }
+        int totalCount = mFriendsList.size();
+        int page = totalCount / mShowNumber;
+        int lastPageCount = totalCount % mShowNumber;
+        for (int i = 0; i < page; i++) {
+            int startIndex = i * mShowNumber;
+            int endIndex = startIndex + mShowNumber;
+            mFriendsSparseArray.put(i, mFriendsList.subList(startIndex, endIndex));
+        }
+        if (lastPageCount > 0) {
+            mFriendsSparseArray.put(page + 1, mFriendsList.subList(page * mShowNumber, page * mShowNumber + lastPageCount));
+        }
+        System.out.println(mFriendsSparseArray);
+    }
+
+    private static void testExecption() {
+        try {
+            System.out.println("1");
+            Entity entity = null;
+//            entity.getName();
+            System.out.println("2");
+            return;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println("finally");
+        }
+    }
+
+    private static void testSuper(Entity entity) {
+        System.out.println(entity.getName());
+    }
 
     private static void formatDate(long time) {
         DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
