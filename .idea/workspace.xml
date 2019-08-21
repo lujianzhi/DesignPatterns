@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13d724b9-2f81-4c0a-bd61-175202384d58" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/ppt/.~设计模式_观察者模式_卢建至.pptx" afterDir="false" />
+    <list default="true" id="13d724b9-2f81-4c0a-bd61-175202384d58" name="Default" comment="观察者模式分享demo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/ian/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ppt/设计模式_观察者模式_卢建至.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/ppt/设计模式_观察者模式_卢建至.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ian/observer/example2/wrong/boy/ComputerBoy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ian/observer/example2/wrong/boy/ComputerBoy.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -387,7 +386,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566345521585</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="观察者模式分享demo">
+      <created>1566394266564</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1566394266564</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
